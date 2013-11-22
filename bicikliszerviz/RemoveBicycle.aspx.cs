@@ -52,6 +52,7 @@ namespace bicikliszerviz
                 }
                 dc.Bicycles.DeleteOnSubmit(b);
                 dc.SubmitChanges();
+                Response.Redirect("ListBicycles");
             }
         }
     }

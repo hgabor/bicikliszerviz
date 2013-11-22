@@ -64,6 +64,7 @@ namespace bicikliszerviz.Scripts
                 b.Type = typeTextBox.Text;
                 b.Fault = faultTextBox.Text;
                 dc.SubmitChanges();
+                Response.Redirect("ListBicycles");
             }
         }
     }
