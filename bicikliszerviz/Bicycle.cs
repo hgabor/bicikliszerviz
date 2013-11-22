@@ -14,6 +14,10 @@ namespace bicikliszerviz
             {
                 return System.Web.Security.Membership.GetUser(this.UserId);
             }
+            set
+            {
+                this.UserId = (Guid)value.ProviderUserKey;
+            }
         }
     }
 }
