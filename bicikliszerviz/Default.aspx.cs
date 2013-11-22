@@ -13,6 +13,7 @@ namespace bicikliszerviz
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Page.Title = "Főoldal";
             using (var dc = new DataClassesDataContext())
             {
                 var res = from b in dc.Bicycles
