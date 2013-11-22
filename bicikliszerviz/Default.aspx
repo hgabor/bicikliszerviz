@@ -13,13 +13,5 @@
             </p>
 </asp:Content>
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <h3>A rendszerben lévő biciklik:</h3>
-    <ul>
-        <% foreach (var b in list) { %>
-        <li><%= HttpUtility.HtmlEncode(b.Type) %>,
-            tulaj:
-            <a href="mailto:<%= HttpUtility.UrlEncode(b.Owner.Email) %>"><%= HttpUtility.HtmlEncode(b.Owner.UserName) %></a>
-        </li>
-        <% } %>
-    </ul>
+
 </asp:Content>
