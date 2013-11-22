@@ -32,16 +32,31 @@ namespace bicikliszerviz
 
         protected void submitButton_Click(object sender, EventArgs e)
         {
-            foreach (ListItem v in UsersCheckBoxList.Items)
+            using (var dc = new DataClassesDataContext())
             {
-                if (v.Selected)
+                foreach (ListItem v in UsersCheckBoxList.Items)
                 {
-                    if (!Roles.IsUserInRole(v.Value, "service")) Roles.AddUserToRole(v.Value, "service");
+                    if (v.Selected)
+                    {
+                        if (!Roles.IsUserInRole(v.Value, "service"))
+                        {
+                            Roles.AddUserToRole(v.Value, "service");
+                            Service s = new Service();
+                            s.UserId = (Guid)Membership.GetUser(v.Value).ProviderUserKey;
+                            s.Address = "";
+                            s.Name = "";
+                            dc.Services.InsertOnSubmit(s);
+                        }
+                    }
+                    else
+                    {
+                        if (Roles.IsUserInRole(v.Value, "service"))
+                        {
+                            Roles.RemoveUserFromRole(v.Value, "service");
+                        }
+                    }
                 }
-                else
-                {
-                    if (Roles.IsUserInRole(v.Value, "service")) Roles.RemoveUserFromRole(v.Value, "service");
-                }
+                dc.SubmitChanges();
             }
         }
     }

@@ -33,6 +33,6 @@ CREATE TABLE Ajanlat (
 	BicycleId uniqueidentifier NOT NULL REFERENCES Bicycle(Id),
 	
 	Cost NUMERIC(20) NOT NULL,
-	
+	Times NUMERIC(3) NOT NULL,
 	PRIMARY KEY (ServiceId, BicycleId)
 );

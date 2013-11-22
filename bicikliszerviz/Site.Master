@@ -6,6 +6,7 @@
     <meta charset="utf-8" />
     <title><%: Page.Title %> - Bicikliszerviz portál</title>
     <link href="~/css/style.css" rel="stylesheet" /> 
+    <link href="css/mystyle.css" rel="stylesheet" />
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <asp:PlaceHolder runat="server">        
         <script src="<%: ResolveUrl("~/Scripts/modernizr-2.6.2.js") %>"></script>
@@ -58,6 +59,7 @@
         </div>
     </header>
     <div id="body">
+        <br>
         <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
         <section class="content-wrapper main-content clear-fix">
             <asp:ContentPlaceHolder runat="server" ID="MainContent" />
@@ -65,10 +67,12 @@
     </div>
     <footer>
         <div id="footnote">
+            <br><br>
             <ul>
                 <li class="active">
                     <a href="admin.aspx">Főoldal</a>
                 </li>
+                <br>
                 <li><span>© Copyright © <%: DateTime.Now.Year %>. ByciclePortal all rights reserved.</span></li>
             </ul>
         </div>

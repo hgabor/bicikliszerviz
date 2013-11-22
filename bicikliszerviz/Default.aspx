@@ -6,7 +6,7 @@
     <div id="adbox">
         <div>
             <div>
-                <h1>Biciklisszerviz portál</h1>
+                <h1>Bicikliszerviz portál</h1>
                 <p>
                 A weboldal azzal a céllal készült...
                </p>

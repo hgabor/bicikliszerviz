@@ -2,12 +2,6 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses">
   <DataContextMoniker Name="/DataClassesDataContext" />
   <nestedChildShapes>
-    <classShape Id="67ba765f-77b8-4b45-9722-8d3f7deffe71" absoluteBounds="0.75, 0.75, 2, 1.3862939453125">
-      <DataClassMoniker Name="/DataClassesDataContext/Ajanlat" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ee217d6f-0c9b-4d73-83b1-970561358dd5" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="341888a1-3660-40e3-85af-adbc33cd210a" absoluteBounds="3.75, 0.75, 2, 1.7708968098958331">
       <DataClassMoniker Name="/DataClassesDataContext/Bicycle" />
       <nestedChildShapes>
@@ -20,18 +14,24 @@
         <elementListCompartment Id="668d8ef1-0bf5-428b-b8ad-a66f784e15f6" absoluteBounds="1.0150000000000001, 3.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 1.44314697265625); (3.75 : 1.44314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/DataClassesDataContext/Ajanlat/Ajanlat_Bicycle" />
+    <classShape Id="334211e6-ca27-4e85-b3c7-89e1536f6772" absoluteBounds="0.875, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClassesDataContext/Ajanlat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="67249ef4-3b72-4950-a391-30137242b3b1" absoluteBounds="0.89, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.75 : 1.53929768880208); (2.875 : 1.53929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Bicycle/Bicycle_Ajanlat1" />
       <nodes>
-        <classShapeMoniker Id="67ba765f-77b8-4b45-9722-8d3f7deffe71" />
         <classShapeMoniker Id="341888a1-3660-40e3-85af-adbc33cd210a" />
+        <classShapeMoniker Id="334211e6-ca27-4e85-b3c7-89e1536f6772" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.875 : 2.1362939453125); (1.875 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/DataClassesDataContext/Ajanlat/Ajanlat_Service" />
+    <associationConnector edgePoints="[(1.9375 : 3.125); (1.9375 : 2.32859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Service/Service_Ajanlat1" />
       <nodes>
-        <classShapeMoniker Id="67ba765f-77b8-4b45-9722-8d3f7deffe71" />
         <classShapeMoniker Id="3b464279-2cb2-4679-8cf2-42065f97ab82" />
+        <classShapeMoniker Id="334211e6-ca27-4e85-b3c7-89e1536f6772" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
