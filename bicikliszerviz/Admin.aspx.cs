@@ -8,8 +8,16 @@ using System.Web.UI.WebControls;
 
 namespace bicikliszerviz
 {
-    public partial class Admin : System.Web.UI.Page
+    public partial class Admin : BasePage
     {
+        protected override string[] AllowedRoles
+        {
+            get
+            {
+                return new[] { "admin" };
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.Title = "Felhasználók kezelése";
@@ -32,8 +40,6 @@ namespace bicikliszerviz
 
         protected void submitButton_Click(object sender, EventArgs e)
         {
-            using (var dc = new DataClassesDataContext())
-            {
                 foreach (ListItem v in UsersCheckBoxList.Items)
                 {
                     if (v.Selected)
@@ -45,7 +51,7 @@ namespace bicikliszerviz
                             s.UserId = (Guid)Membership.GetUser(v.Value).ProviderUserKey;
                             s.Address = "";
                             s.Name = "";
-                            dc.Services.InsertOnSubmit(s);
+                            this.db.Services.InsertOnSubmit(s);
                         }
                     }
                     else
@@ -56,8 +62,7 @@ namespace bicikliszerviz
                         }
                     }
                 }
-                dc.SubmitChanges();
+                this.db.SubmitChanges();
             }
-        }
     }
 }
