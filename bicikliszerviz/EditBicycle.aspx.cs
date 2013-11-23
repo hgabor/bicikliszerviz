@@ -59,6 +59,7 @@ namespace bicikliszerviz.Scripts
                 {
                     // New bicycle
                     b = new Bicycle();
+                    b.Id = Guid.NewGuid();
                     b.Owner = currentUser;
                     dc.Bicycles.InsertOnSubmit(b);
                 }
