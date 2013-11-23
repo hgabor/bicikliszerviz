@@ -9,24 +9,19 @@ namespace bicikliszerviz.Scripts
 {
     public partial class EditBicycle : BasePage
     {
-        protected List<Ajanlat> offers;
-        protected void Page_Load(object sender, EventArgs e)
+        private void BindData()
         {
-            if (!this.User.Identity.IsAuthenticated)
-            {
-                Response.Redirect("Account/Login.aspx");
-            }
-
             var currentUser = System.Web.Security.Membership.GetUser();
             var bicycleID = Request.QueryString["bicycleID"];
+            List<Ajanlat> offers;
             if (bicycleID != null)
             {
                 // Existing bicycle
                 var b = (from bi in this.db.Bicycles
-                            where
-                            bi.UserId == (Guid)currentUser.ProviderUserKey &&
-                            bi.Id == Guid.Parse(bicycleID)
-                            select bi).First();
+                         where
+                         bi.UserId == (Guid)currentUser.ProviderUserKey &&
+                         bi.Id == Guid.Parse(bicycleID)
+                         select bi).First();
                 if (b != null && !IsPostBack)
                 {
                     sizeTextBox.Text = b.Size.ToString();
@@ -43,6 +38,23 @@ namespace bicikliszerviz.Scripts
             {
                 offers = new List<Ajanlat>();
             }
+            Repeater1.DataSource = offers;
+            Repeater1.DataBind();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!this.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("Account/Login.aspx");
+            }
+
+        }
+
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            BindData();
         }
 
         protected void submitButton_Click(object sender, EventArgs e)
@@ -77,6 +89,32 @@ namespace bicikliszerviz.Scripts
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Ajanlat a = (Ajanlat)e.Item.DataItem;
+
+                ((Literal)e.Item.FindControl("serviceNameLiteral")).Text = a.Service.Name;
+                ((Literal)e.Item.FindControl("offerLiteral")).Text = a.Cost.ToString();
+                ((Literal)e.Item.FindControl("timeLiteral")).Text = a.Times.ToString();
+                ((Literal)e.Item.FindControl("addressLiteral")).Text = a.Service.Address;
+            }
+        }
+
+        protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "accept")
+            {
+                int i = e.Item.ItemIndex;
+                var list = (List<Ajanlat>)this.Repeater1.DataSource;
+                list.ForEach(aj => aj.Selected = false);
+                Ajanlat a = list[i];
+                a.Selected = true;
+                this.db.SubmitChanges();
+            }
         }
     }
 }

@@ -22,7 +22,18 @@
                     <th>Szerviz címe</th>
                     <th>Ajánlat elfogadása</th>
             </tr>
-            <% foreach (var a in offers){ %>
+
+        <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound" OnItemCommand="Repeater1_ItemCommand">
+            <ItemTemplate>
+                <td><asp:Literal ID="serviceNameLiteral" runat="server"></asp:Literal></td>
+                <td><asp:Literal ID="offerLiteral" runat="server"></asp:Literal></td>
+                <td><asp:Literal ID="timeLiteral" runat="server"></asp:Literal></td>
+                <td><asp:Literal ID="addressLiteral" runat="server"></asp:Literal></td>
+                <td><asp:Button ID="acceptButton" CommandName="accept" Text="Elfogad" runat="server" /></td>
+            </ItemTemplate>
+        </asp:Repeater>
+
+<%--            <% foreach (var a in offers){ %>
             <tr>
                     <td><%:a.Service.Name %></td>
                     <td><%:a.Cost %></td>
@@ -30,6 +41,6 @@
                     <td><%:a.Service.Address %></td>
                     <td> <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" /><% %></td>
                     </tr>
-            <% } %>
+            <% } %>--%>
         </table>
 </asp:Content>
