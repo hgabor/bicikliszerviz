@@ -11,6 +11,6 @@
     <p>Add meg a javítás időtartamát napban:</p>
     <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
 
-    <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" />
+    <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" Text="Mentés"/>
     <br>
 </asp:Content>

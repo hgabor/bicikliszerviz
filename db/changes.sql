@@ -34,5 +34,6 @@ CREATE TABLE Ajanlat (
 	
 	Cost NUMERIC(20) NOT NULL,
 	Times NUMERIC(3) NOT NULL,
+	Selected BIT NOT NULL DEFAULT 0,
 	PRIMARY KEY (ServiceId, BicycleId)
 );

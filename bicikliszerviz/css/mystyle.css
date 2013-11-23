@@ -7,3 +7,12 @@ th
 {
     border-bottom: 1px solid white;
 }
+#t1 th, #t1 td
+{
+	padding: 5px;
+}
+
+#t1
+{
+	margin-top: 20px;
+}

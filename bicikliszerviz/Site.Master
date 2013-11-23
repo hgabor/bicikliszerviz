@@ -26,7 +26,7 @@
         <div class="content-wrapper">
                 <div id="header">
                     <div id="logo">
-                        <a runat="server" href="~/"><img alt="LOGO" src="images/logo.gif"></a>
+                        <a runat="server" href="~/"><img alt="LOGO" src="/images/logo.gif"></a>
                     </div>
                 </div>
             </div>

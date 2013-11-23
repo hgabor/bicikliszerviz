@@ -32,14 +32,18 @@ namespace bicikliszerviz
             var bicycleID = Request.QueryString["bicycleID"];
             var currentUser = System.Web.Security.Membership.GetUser();
             Ajanlat a = new Ajanlat();
-            a.BicycleId = Guid.Parse(bicycleID);
-            a.ServiceId = (Guid)currentUser.ProviderUserKey;
-            a.Cost = int.Parse(TextBox1.Text);
-            a.Times = int.Parse(TextBox2.Text);
-            using (var dc = new DataClassesDataContext())
+            if (!string.IsNullOrWhiteSpace(TextBox1.Text) && !string.IsNullOrWhiteSpace(TextBox2.Text))
             {
-                dc.Ajanlats.InsertOnSubmit(a);
-                dc.SubmitChanges();
+                a.BicycleId = Guid.Parse(bicycleID);
+                a.ServiceId = (Guid)currentUser.ProviderUserKey;
+                a.Cost = int.Parse(TextBox1.Text);
+                a.Times = int.Parse(TextBox2.Text);
+
+                using (var dc = new DataClassesDataContext())
+                {
+                    dc.Ajanlats.InsertOnSubmit(a);
+                    dc.SubmitChanges();
+                }
             }
         }
     }

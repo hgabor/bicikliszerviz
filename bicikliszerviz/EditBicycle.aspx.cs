@@ -7,8 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace bicikliszerviz.Scripts
 {
-    public partial class EditBicycle : System.Web.UI.Page
+    public partial class EditBicycle : BasePage
     {
+        protected List<Ajanlat> offers;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.User.Identity.IsAuthenticated)
@@ -24,15 +25,25 @@ namespace bicikliszerviz.Scripts
                 {
                     // Existing bicycle
                     var b = (from bi in dc.Bicycles
-                         where
-                            bi.UserId == (Guid)currentUser.ProviderUserKey &&
-                            bi.Id == Guid.Parse(bicycleID)
-                         select bi).First();
-                    if (b != null && !IsPostBack) {
+                             where
+                                bi.UserId == (Guid)currentUser.ProviderUserKey &&
+                                bi.Id == Guid.Parse(bicycleID)
+                             select bi).First();
+                    if (b != null && !IsPostBack)
+                    {
                         sizeTextBox.Text = b.Size.ToString();
                         typeTextBox.Text = b.Type;
                         faultTextBox.Text = b.Fault;
                     }
+                    var ajanl = from ajanlat in this.db.Ajanlats
+                                join bicikli in this.db.Bicycles on ajanlat.BicycleId equals bicikli.Id
+                                where bicikli.UserId == (Guid)currentUser.ProviderUserKey
+                                select ajanlat;
+                    offers = new List<Ajanlat>(ajanl);
+                }
+                else
+                {
+                    offers = new List<Ajanlat>();
                 }
             }
         }
@@ -66,6 +77,11 @@ namespace bicikliszerviz.Scripts
                 dc.SubmitChanges();
                 Response.Redirect("ListBicycles");
             }
+        }
+
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
