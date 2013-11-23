@@ -1,5 +1,11 @@
 USE bicikli;
 
+DECLARE @AdminUser NVARCHAR(50);
+SET @AdminUser = 'hali';
+
+DECLARE @AppId UniqueIdentifier;
+SET @AppId = (SELECT ApplicationId FROM Applications WHERE ApplicationName = '/');
+
 --ALTER TABLE Users ADD
 --	PrivateData NVARCHAR(50),
 --	ContactInfo NVARCHAR(50);
@@ -37,3 +43,21 @@ CREATE TABLE Ajanlat (
 	Selected BIT NOT NULL DEFAULT 0,
 	PRIMARY KEY (ServiceId, BicycleId)
 );
+
+DELETE FROM UsersInRoles
+	WHERE RoleId IN (SELECT RoleId FROM Roles WHERE RoleName = 'admin');
+DELETE FROM Roles WHERE RoleName = 'admin';
+INSERT INTO Roles (ApplicationId, RoleId, RoleName)
+	VALUES (@AppId, newid(), 'admin');
+
+DELETE FROM UsersInRoles
+	WHERE RoleId IN (SELECT RoleId FROM Roles WHERE RoleName = 'service');
+DELETE FROM Roles WHERE RoleName = 'service';
+INSERT INTO Roles (ApplicationId, RoleId, RoleName)
+	VALUES (@AppId, newid(), 'service');
+
+INSERT INTO UsersInRoles (UserId, RoleId) VALUES (
+	(SELECT UserId FROM Users WHERE UserName = @AdminUser),
+	(SELECT RoleId FROM Roles WHERE RoleName = 'admin')
+);
+
