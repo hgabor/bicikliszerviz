@@ -7,10 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace bicikliszerviz
 {
-    public partial class ListBicycles : System.Web.UI.Page
+    public partial class ListBicycles : BasePage
     {
         protected List<Bicycle> list;
-        private DataClassesDataContext dc = new DataClassesDataContext();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,16 +19,10 @@ namespace bicikliszerviz
             }
 
             var currentUser = System.Web.Security.Membership.GetUser();
-            var res = from b in dc.Bicycles
+            var res = from b in this.db.Bicycles
                         where b.UserId == (Guid)currentUser.ProviderUserKey
                         select b;
             list = new List<Bicycle>(res);
-        }
-
-        public override void Dispose()
-        {
-            base.Dispose();
-            dc.Dispose();
         }
     }
 }

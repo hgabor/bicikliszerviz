@@ -18,66 +18,60 @@ namespace bicikliszerviz.Scripts
             }
 
             var currentUser = System.Web.Security.Membership.GetUser();
-            using (var dc = new DataClassesDataContext())
+            var bicycleID = Request.QueryString["bicycleID"];
+            if (bicycleID != null)
             {
-                var bicycleID = Request.QueryString["bicycleID"];
-                if (bicycleID != null)
+                // Existing bicycle
+                var b = (from bi in this.db.Bicycles
+                            where
+                            bi.UserId == (Guid)currentUser.ProviderUserKey &&
+                            bi.Id == Guid.Parse(bicycleID)
+                            select bi).First();
+                if (b != null && !IsPostBack)
                 {
-                    // Existing bicycle
-                    var b = (from bi in dc.Bicycles
-                             where
-                                bi.UserId == (Guid)currentUser.ProviderUserKey &&
-                                bi.Id == Guid.Parse(bicycleID)
-                             select bi).First();
-                    if (b != null && !IsPostBack)
-                    {
-                        sizeTextBox.Text = b.Size.ToString();
-                        typeTextBox.Text = b.Type;
-                        faultTextBox.Text = b.Fault;
-                    }
-                    var ajanl = from ajanlat in this.db.Ajanlats
-                                join bicikli in this.db.Bicycles on ajanlat.BicycleId equals bicikli.Id
-                                where bicikli.UserId == (Guid)currentUser.ProviderUserKey
-                                select ajanlat;
-                    offers = new List<Ajanlat>(ajanl);
+                    sizeTextBox.Text = b.Size.ToString();
+                    typeTextBox.Text = b.Type;
+                    faultTextBox.Text = b.Fault;
                 }
-                else
-                {
-                    offers = new List<Ajanlat>();
-                }
+                var ajanl = from ajanlat in this.db.Ajanlats
+                            join bicikli in this.db.Bicycles on ajanlat.BicycleId equals bicikli.Id
+                            where bicikli.UserId == (Guid)currentUser.ProviderUserKey
+                            select ajanlat;
+                offers = new List<Ajanlat>(ajanl);
+            }
+            else
+            {
+                offers = new List<Ajanlat>();
             }
         }
 
         protected void submitButton_Click(object sender, EventArgs e)
         {
             var currentUser = System.Web.Security.Membership.GetUser();
-            using (var dc = new DataClassesDataContext())
+            var bicycleID = Request.QueryString["bicycleID"];
+            Bicycle b;
+            if (bicycleID == null)
             {
-                var bicycleID = Request.QueryString["bicycleID"];
-                Bicycle b;
-                if (bicycleID == null)
-                {
-                    // New bicycle
-                    b = new Bicycle();
-                    b.Id = Guid.NewGuid();
-                    b.Owner = currentUser;
-                    dc.Bicycles.InsertOnSubmit(b);
-                }
-                else
-                {
-                    // Existing bicycle
-                    b = (from bi in dc.Bicycles
-                         where
-                            bi.UserId == (Guid)currentUser.ProviderUserKey &&
-                            bi.Id == Guid.Parse(bicycleID)
-                         select bi).First();
-                }
-                b.Size = int.Parse(sizeTextBox.Text);
-                b.Type = typeTextBox.Text;
-                b.Fault = faultTextBox.Text;
-                dc.SubmitChanges();
-                Response.Redirect("ListBicycles");
+                // New bicycle
+                b = new Bicycle();
+                b.Id = Guid.NewGuid();
+                b.Owner = currentUser;
+                this.db.Bicycles.InsertOnSubmit(b);
             }
+            else
+            {
+                // Existing bicycle
+                b = (from bi in this.db.Bicycles
+                        where
+                        bi.UserId == (Guid)currentUser.ProviderUserKey &&
+                        bi.Id == Guid.Parse(bicycleID)
+                        select bi).First();
+            }
+            b.Size = int.Parse(sizeTextBox.Text);
+            b.Type = typeTextBox.Text;
+            b.Fault = faultTextBox.Text;
+            this.db.SubmitChanges();
+            Response.Redirect("ListBicycles");
         }
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)

@@ -7,18 +7,15 @@ using System.Web.UI.WebControls;
 
 namespace bicikliszerviz
 {
-    public partial class ListService : System.Web.UI.Page
+    public partial class ListService : BasePage
     {
         protected List<Bicycle> bicycles;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (var dc = new DataClassesDataContext())
-            {
-                var b = from bi in dc.Bicycles
-                        select bi;
-                bicycles = new List<Bicycle>(b);
-            }
+            var b = from bi in this.db.Bicycles
+                    select bi;
+            bicycles = new List<Bicycle>(b);
         }
     }
 }
