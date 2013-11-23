@@ -8,7 +8,7 @@ using Microsoft.AspNet.Membership.OpenAuth;
 
 namespace bicikliszerviz.Account
 {
-    public partial class Manage : System.Web.UI.Page
+    public partial class Manage : BasePage
     {
         protected string SuccessMessage
         {
@@ -99,6 +99,29 @@ namespace bicikliszerviz.Account
             // offset and format. Here we're converting it to the server timezone and formatting
             // as a short date and a long time string, using the current thread culture.
             return utcDateTime.HasValue ? utcDateTime.Value.ToLocalTime().ToString("G") : "[never]";
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Service s;
+            s = (from serv in this.db.Services
+                 where
+                 serv.UserId == (Guid)System.Web.Security.Membership.GetUser().ProviderUserKey
+                 select serv).First();
+            String name = TextBox1.Text;
+            String address = TextBox2.Text;
+            if(name.Equals(""))
+            {
+                name = s.Name;
+            }
+            if(address.Equals(""))
+            {
+                address = s.Address;
+            }
+           s.Name = name;
+           s.Address = address;
+           this.db.SubmitChanges();
+           Response.Redirect("/default.aspx");
         }
     }
 }
