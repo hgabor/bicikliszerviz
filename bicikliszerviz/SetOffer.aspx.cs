@@ -20,7 +20,6 @@ namespace bicikliszerviz
                     // Existing bicycle
                     var b = (from bi in dc.Bicycles
                              where
-                                bi.UserId == (Guid)currentUser.ProviderUserKey &&
                                 bi.Id == Guid.Parse(bicycleID)
                              select bi).First();
                 }
