@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="bicikli" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=PCUSER-PC\SQLEXPRESS;Initial Catalog=bicikli;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="bicikliConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=bicikli;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DefaultConnection" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Bicycle" Member="Bicycles">
     <Type Name="Bicycle">
       <Column Name="Id" AutoSync="Never" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -7,7 +7,7 @@
       <Column Name="Type" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Size" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Fault" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Association Name="Bicycle_Ajanlat1" Member="Ajanlats" ThisKey="Id" OtherKey="BicycleId" Type="Ajanlat" />
+      <Association Name="Bicycle_Ajanlat" Member="Ajanlats" ThisKey="Id" OtherKey="BicycleId" Type="Ajanlat" />
     </Type>
   </Table>
   <Table Name="dbo.Service" Member="Services">
@@ -15,7 +15,7 @@
       <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Address" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Service_Ajanlat1" Member="Ajanlats" ThisKey="UserId" OtherKey="ServiceId" Type="Ajanlat" />
+      <Association Name="Service_Ajanlat" Member="Ajanlats" ThisKey="UserId" OtherKey="ServiceId" Type="Ajanlat" />
     </Type>
   </Table>
   <Table Name="dbo.Ajanlat" Member="Ajanlats">
@@ -24,8 +24,8 @@
       <Column Name="BicycleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Cost" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
       <Column Name="Times" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
-      <Association Name="Bicycle_Ajanlat1" Member="Bicycle" ThisKey="BicycleId" OtherKey="Id" Type="Bicycle" IsForeignKey="true" />
-      <Association Name="Service_Ajanlat1" Member="Service" ThisKey="ServiceId" OtherKey="UserId" Type="Service" IsForeignKey="true" />
+      <Association Name="Bicycle_Ajanlat" Member="Bicycle" ThisKey="BicycleId" OtherKey="Id" Type="Bicycle" IsForeignKey="true" />
+      <Association Name="Service_Ajanlat" Member="Service" ThisKey="ServiceId" OtherKey="UserId" Type="Service" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

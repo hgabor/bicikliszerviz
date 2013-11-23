@@ -21,14 +21,14 @@
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(3.75 : 1.53929768880208); (2.875 : 1.53929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataClassesDataContext/Bicycle/Bicycle_Ajanlat1" />
+      <AssociationMoniker Name="/DataClassesDataContext/Bicycle/Bicycle_Ajanlat" />
       <nodes>
         <classShapeMoniker Id="341888a1-3660-40e3-85af-adbc33cd210a" />
         <classShapeMoniker Id="334211e6-ca27-4e85-b3c7-89e1536f6772" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(1.9375 : 3.125); (1.9375 : 2.32859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataClassesDataContext/Service/Service_Ajanlat1" />
+      <AssociationMoniker Name="/DataClassesDataContext/Service/Service_Ajanlat" />
       <nodes>
         <classShapeMoniker Id="3b464279-2cb2-4679-8cf2-42065f97ab82" />
         <classShapeMoniker Id="334211e6-ca27-4e85-b3c7-89e1536f6772" />
