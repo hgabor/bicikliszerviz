@@ -47,8 +47,12 @@ namespace bicikliszerviz
                     if (!Roles.IsUserInRole(v.Value, "service"))
                     {
                         Roles.AddUserToRole(v.Value, "service");
+                    }
+                    var uid = (Guid)Membership.GetUser(v.Value).ProviderUserKey;
+                    if (this.db.Services.Count(serv => serv.UserId == uid) == 0)
+                    {
                         Service s = new Service();
-                        s.UserId = (Guid)Membership.GetUser(v.Value).ProviderUserKey;
+                        s.UserId = uid;
                         s.Address = "";
                         s.Name = "";
                         this.db.Services.InsertOnSubmit(s);
