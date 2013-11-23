@@ -10,6 +10,7 @@ namespace bicikliszerviz
     public partial class ListBicycles : System.Web.UI.Page
     {
         protected List<Bicycle> list;
+        private DataClassesDataContext dc = new DataClassesDataContext();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,13 +20,16 @@ namespace bicikliszerviz
             }
 
             var currentUser = System.Web.Security.Membership.GetUser();
-            using (var dc = new DataClassesDataContext())
-            {
-                var res = from b in dc.Bicycles
-                          where b.UserId == (Guid)currentUser.ProviderUserKey
-                          select b;
-                list = new List<Bicycle>(res);
-            }
+            var res = from b in dc.Bicycles
+                        where b.UserId == (Guid)currentUser.ProviderUserKey
+                        select b;
+            list = new List<Bicycle>(res);
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            dc.Dispose();
         }
     }
 }

@@ -15,6 +15,8 @@
             tulaj:
             <a href="mailto:<%= HttpUtility.UrlEncode(b.Owner.Email) %>"><%: b.Owner.UserName %></a>
             <a href="RemoveBicycle?bicycleID=<%= HttpUtility.UrlEncode(b.Id.ToString()) %>">Törlés</a>
+
+            Ajánlatok száma: <%: b.Ajanlats.Count() %>
         </li>
         <% } %>
     </ul>
