@@ -2,10 +2,19 @@
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 <%@ Import Namespace="Microsoft.AspNet.Membership.OpenAuth" %>
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
+    <% if (User.IsInRole("service")){ %>
+    A szerviz névének és címének megváltoztatása az alábbiakban lehetséges:<br>
+    <asp:Label ID="Label1" runat="server" Text="Név:" AssociatedControlID="TextBox1"></asp:Label>
+    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br>
+
+    <asp:Label ID="Label2" runat="server" Text="Cím:" AssociatedControlID="TextBox2"></asp:Label>
+    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+    
+    <asp:Button ID="Button1" runat="server" Text="Mentés" OnClick="Button1_Click" />
+    <%} %>
     <hgroup class="title">
         <h1><%: Title %>.</h1>
     </hgroup>
-
     <section id="passwordForm">
         <asp:PlaceHolder runat="server" ID="successMessage" Visible="false" ViewStateMode="Disabled">
             <p class="message-success"><%: SuccessMessage %></p>
