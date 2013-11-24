@@ -25,7 +25,11 @@ namespace bicikliszerviz
             }
             foreach (var role in AllowedRoles)
             {
-                if (System.Web.Security.Roles.IsUserInRole(role))
+                if ("login".Equals(role) && User.Identity.IsAuthenticated)
+                {
+                    return true;
+                }
+                else if (System.Web.Security.Roles.IsUserInRole(role))
                 {
                     return true;
                 }
