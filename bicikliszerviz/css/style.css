@@ -25,7 +25,6 @@ img {
 /*------------------------------ HEADER ------------------------------*/
 #header {
 	height: 108px;
-	width: 960px;
 	margin: 0 auto;
 }
 /** Logo **/
@@ -33,7 +32,7 @@ img {
 	float: left;
 	background: url(../images/bg-logo.jpg) no-repeat;
 	height: 108px;
-	width: 427px;
+	width: 350px;
 	margin-right: 23px;
 }
 #logo a {
@@ -91,7 +90,7 @@ img {
 }
 #adbox div div p {
 	color: #fff;
-	font: 14px/24px 'VarelaRound-Regular';
+	font: 14px/24px 'Helvetica';
 	margin: 0;
 	padding: 0 0 24px;
 }

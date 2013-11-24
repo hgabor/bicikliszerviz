@@ -2,9 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
-    Ezen az oldalon lehet kiválasztani, mely felhasználók kezelik a szervízek adatait.
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+     Ezen az oldalon lehet kiválasztani, mely felhasználók kezelik a szervízek adatait.
     <asp:CheckBoxList ID="UsersCheckBoxList" runat="server"></asp:CheckBoxList>
     <asp:Button ID="submitButton" Text="Mentés" runat="server" OnClick="submitButton_Click" />
 </asp:Content>

@@ -13,7 +13,7 @@ namespace bicikliszerviz
         {
             get
             {
-                return new[] { "login" };
+                return new[] { "service" };
             }
         }
         protected List<Bicycle> bicycles;

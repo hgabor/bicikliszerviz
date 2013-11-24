@@ -60,9 +60,6 @@ namespace bicikliszerviz.Account
             // Data-bind the list of external accounts
             var accounts = OpenAuth.GetAccountsForUser(User.Identity.Name);
             CanRemoveExternalLogins = CanRemoveExternalLogins || accounts.Count() > 1;
-            externalLoginsList.DataSource = accounts;
-            externalLoginsList.DataBind();
-
         }
 
         protected void setPassword_Click(object sender, EventArgs e)

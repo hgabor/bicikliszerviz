@@ -22,29 +22,23 @@
             <asp:ScriptReference Name="jquery.ui.combined" />
         </Scripts>
     </asp:ScriptManager>
-    <header>
-        <div class="content-wrapper">
-                <div id="header">
-                    <div id="logo">
-                        <a runat="server" href="~/"><img alt="LOGO" src="/images/logo.gif"></a>
-                    </div>
-                </div>
+        <div id="header">
+            <div id="logo">
+                <a runat="server" href="~/"><img alt="LOGO" src="/images/logo.gif"></a>
             </div>
-            <div class="float-right">
-                <section id="login">
-                    <ul id="navigation">
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+            <ul id="navigation">
+                    <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <li class="active">
-                                <a id="loginLink" runat="server" href="~/Account/Login">Log in</a>
+                                <a id="loginLink" runat="server" href="~/Account/Login">Bejelentkezés</a>
                             </li>
                             <li>
-                                <a id="registerLink" runat="server" href="~/Account/Register">Register</a>
+                                <a id="registerLink" runat="server" href="~/Account/Register">Regisztráció</a>
                             </li>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                                 <li>
-                                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
+                                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Kijelentkezés" LogoutPageUrl="~/" />
                                 </li>
                                 <li>
                                     <a href="/ListBicycles.aspx">Saját biciklik</a>
@@ -54,13 +48,13 @@
                                 </li>
 
                                 <li>
-                                    <a runat="server" class="username" href="~/Account/Manage" title="Manage your account">
-                                        Fiók kezelése: <asp:LoginName runat="server" CssClass="username" />
+                                    <a id="A1" runat="server" class="username" href="~/Account/Manage" title="Manage your account">
+                                        Fiók kezelése: <asp:LoginName ID="LoginName1" runat="server" CssClass="username" />
                                     </a>
                                 </li>
                         </LoggedInTemplate>
                     </asp:LoginView>
-                    <asp:LoginView runat="server">
+                    <asp:LoginView ID="LoginView2" runat="server">
                         <RoleGroups>
                             <asp:RoleGroup Roles="service">
                                 <ContentTemplate>
@@ -69,7 +63,7 @@
                             </asp:RoleGroup>
                         </RoleGroups>
                     </asp:LoginView>
-                    <asp:LoginView runat="server">
+                    <asp:LoginView ID="LoginView3" runat="server">
                         <RoleGroups>
                             <asp:RoleGroup Roles="admin">
                                 <ContentTemplate>
@@ -79,12 +73,9 @@
                         </RoleGroups>
                     </asp:LoginView>
                     </ul>
-                </section>
-            </div>
         </div>
-    </header>
+
     <div id="body">
-        <br>
         <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
         <section class="content-wrapper main-content clear-fix">
             <asp:ContentPlaceHolder runat="server" ID="MainContent" />
@@ -92,14 +83,15 @@
     </div>
     <footer>
         <div id="footnote">
-            <br><br>
             <ul>
                 <li class="active">
-                    <a href="admin.aspx">Főoldal</a>
+                    <a href="/default.aspx">Főoldal</a>
                 </li>
-                <br>
-                <li><span>© Copyright © <%: DateTime.Now.Year %>. ByciclePortal all rights reserved.</span></li>
+                <li>
+                    <a href="/about.aspx">Rólunk</a>
+                </li>
             </ul>
+            <span>© Copyright © <%: DateTime.Now.Year %> Minden jog fenntartva - Bicikliszerviz portál.</span>
         </div>
     </footer>
     </form>
