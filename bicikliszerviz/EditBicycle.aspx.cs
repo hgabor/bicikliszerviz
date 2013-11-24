@@ -121,6 +121,7 @@ namespace bicikliszerviz.Scripts
                 Ajanlat a = list[i];
                 a.Selected = true;
                 this.db.SubmitChanges();
+                Mailer.SendAcceptedOfferToService(a, this.Request);
             }
         }
     }

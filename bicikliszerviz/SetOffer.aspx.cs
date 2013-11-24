@@ -44,6 +44,8 @@ namespace bicikliszerviz
 
                 this.db.Ajanlats.InsertOnSubmit(a);
                 this.db.SubmitChanges();
+
+                Mailer.SendNewOfferToUser(a, this.Request);
             }
         }
     }
