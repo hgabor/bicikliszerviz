@@ -32,28 +32,53 @@
             </div>
             <div class="float-right">
                 <section id="login">
+                    <ul id="navigation">
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
-                            <ul id="navigation">
-                                <li class="active">
-                                    <a id="loginLink" runat="server" href="~/Account/Login">Log in</a>
-                                </li>
-                                <li>
-                                    <a id="registerLink" runat="server" href="~/Account/Register">Register</a>
-                                </li>
-                            </ul>
+                            <li class="active">
+                                <a id="loginLink" runat="server" href="~/Account/Login">Log in</a>
+                            </li>
+                            <li>
+                                <a id="registerLink" runat="server" href="~/Account/Register">Register</a>
+                            </li>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
-                                <ul id="navigation">
-                                    <li class="active">
-                                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
-                                    </li>
-                                </ul>
-                                Hello, <a runat="server" class="username" href="~/Account/Manage" title="Manage your account">
-                                    <asp:LoginName runat="server" CssClass="username" />
-                                </a>!
+                                <li>
+                                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
+                                </li>
+                                <li>
+                                    <a href="/ListBicycles.aspx">Saját biciklik</a>
+                                </li>
+                                <li>
+                                    <a href="/EditBicycle.aspx">Új bicikli</a>
+                                </li>
+
+                                <li>
+                                    <a runat="server" class="username" href="~/Account/Manage" title="Manage your account">
+                                        Fiók kezelése: <asp:LoginName runat="server" CssClass="username" />
+                                    </a>
+                                </li>
                         </LoggedInTemplate>
                     </asp:LoginView>
+                    <asp:LoginView runat="server">
+                        <RoleGroups>
+                            <asp:RoleGroup Roles="service">
+                                <ContentTemplate>
+                                    <li><a href="/ListService">Összes bicikli</a></li>
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                        </RoleGroups>
+                    </asp:LoginView>
+                    <asp:LoginView runat="server">
+                        <RoleGroups>
+                            <asp:RoleGroup Roles="admin">
+                                <ContentTemplate>
+                                    <li><a href="/Admin">Szervizek admin</a></li>
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                        </RoleGroups>
+                    </asp:LoginView>
+                    </ul>
                 </section>
             </div>
         </div>

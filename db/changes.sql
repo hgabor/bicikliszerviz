@@ -36,7 +36,7 @@ CREATE TABLE Service (
 
 CREATE TABLE Ajanlat (
 	ServiceId uniqueidentifier NOT NULL REFERENCES Service(UserId),
-	BicycleId uniqueidentifier NOT NULL REFERENCES Bicycle(Id),
+	BicycleId uniqueidentifier NOT NULL REFERENCES Bicycle(Id) ON DELETE CASCADE,
 	
 	Cost NUMERIC(20) NOT NULL,
 	Times NUMERIC(3) NOT NULL,
