@@ -10,7 +10,13 @@ namespace bicikliszerviz
     public partial class RemoveBicycle : BasePage
     {
         Bicycle bicycle;
-
+        protected override string[] AllowedRoles
+        {
+            get
+            {
+                return new[] { "login" };
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             var currentUser = System.Web.Security.Membership.GetUser();

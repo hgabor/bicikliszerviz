@@ -10,6 +10,13 @@ namespace bicikliszerviz.Account
 {
     public partial class Manage : BasePage
     {
+        protected override string[] AllowedRoles
+        {
+            get
+            {
+                return new[] { "login" };
+            }
+        }
         protected string SuccessMessage
         {
             get;

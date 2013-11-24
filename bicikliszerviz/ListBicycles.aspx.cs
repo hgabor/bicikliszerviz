@@ -9,6 +9,14 @@ namespace bicikliszerviz
 {
     public partial class ListBicycles : BasePage
     {
+        protected override string[] AllowedRoles
+        {
+            get
+            {
+                return new[] { "login" };
+            }
+        }
+
         protected List<Bicycle> list;
 
         protected void Page_Load(object sender, EventArgs e)
