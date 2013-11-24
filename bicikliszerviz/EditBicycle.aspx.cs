@@ -9,6 +9,13 @@ namespace bicikliszerviz.Scripts
 {
     public partial class EditBicycle : BasePage
     {
+        protected override string[] AllowedRoles
+        {
+            get
+            {
+                return new[] { "login" };
+            }
+        }
         private void BindData()
         {
             var currentUser = System.Web.Security.Membership.GetUser();

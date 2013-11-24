@@ -9,6 +9,13 @@ namespace bicikliszerviz
 {
     public partial class SetOffer : BasePage
     {
+        protected override string[] AllowedRoles
+        {
+            get
+            {
+                return new[] { "service" };
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             var currentUser = System.Web.Security.Membership.GetUser();
