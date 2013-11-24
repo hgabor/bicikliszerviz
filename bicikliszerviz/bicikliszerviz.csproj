@@ -198,6 +198,7 @@
     <None Include="DataClasses.dbml.layout">
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </None>
+    <Content Include="mail.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="RemoveBicycle.aspx" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -313,6 +314,7 @@
     <Compile Include="ListService.aspx.designer.cs">
       <DependentUpon>ListService.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mailer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EditBicycle.aspx.cs">
       <DependentUpon>EditBicycle.aspx</DependentUpon>
@@ -328,6 +330,7 @@
     <Compile Include="RemoveBicycle.aspx.designer.cs">
       <DependentUpon>RemoveBicycle.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Service.cs" />
     <Compile Include="SetOffer.aspx.cs">
       <DependentUpon>SetOffer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
