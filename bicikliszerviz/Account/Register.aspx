@@ -6,7 +6,7 @@
         <h2>Regisztrációhoz add meg a szükséges adatokat</h2>
     </hgroup>
 
-    <asp:CreateUserWizard runat="server" ID="RegisterUser" ViewStateMode="Disabled" OnCreatedUser="RegisterUser_CreatedUser">
+    <asp:CreateUserWizard runat="server" ID="RegisterUser" ViewStateMode="Disabled" OnCreatedUser="RegisterUser_CreatedUser" DisableCreatedUser="true" OnSendingMail="RegisterUser_SendingMail">
         <LayoutTemplate>
             <asp:PlaceHolder runat="server" ID="wizardStepPlaceholder" />
             <asp:PlaceHolder runat="server" ID="navigationPlaceholder" />
@@ -57,6 +57,11 @@
                 </ContentTemplate>
                 <CustomNavigationTemplate />
             </asp:CreateUserWizardStep>
+            <asp:CompleteWizardStep>
+                <ContentTemplate>
+                    <p>A megadott e-mail címre elküldtünk egy levelet, amelyben a linkre kattinva aktiválhatja a fiókját.</p>
+                </ContentTemplate>
+            </asp:CompleteWizardStep>
         </WizardSteps>
     </asp:CreateUserWizard>
 </asp:Content>

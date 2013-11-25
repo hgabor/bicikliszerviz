@@ -8,7 +8,7 @@ namespace bicikliszerviz
 {
     public static class Mailer
     {
-        static string fromAddress = "bicikli@level14.hu";
+        internal static readonly string fromAddress = "bicikli@level14.hu";
 
         static string newOfferSubject = "A bicikli javítására ajánlat érkezett";
         static string newOfferText =
@@ -83,7 +83,7 @@ A Bicikliszerviz portál csapata
             return realmUri.Uri;
         }
 
-        private static string GetAbsoluteUrl(HttpRequest request, string relativeUrl)
+        internal static string GetAbsoluteUrl(HttpRequest request, string relativeUrl)
         {
             return new Uri(GetBaseUrl(request), VirtualPathUtility.ToAbsolute(relativeUrl)).AbsoluteUri;
         }
