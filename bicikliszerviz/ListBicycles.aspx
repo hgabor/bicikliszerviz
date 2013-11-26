@@ -16,7 +16,7 @@
             <td><a href="EditBicycle?bicycleID=<%= HttpUtility.UrlEncode(b.Id.ToString()) %>">
                 <%: b.Type %>
             </a></td>
-            <td><%: b.Ajanlats.Count() %> ajánlat</td>
+            <td><%: b.Offers.Count() %> ajánlat</td>
             <td><a href="RemoveBicycle?bicycleID=<%= HttpUtility.UrlEncode(b.Id.ToString()) %>">Törlés</a></td>
         </tr>
         <% } %>

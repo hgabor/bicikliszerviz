@@ -6,12 +6,8 @@ SET @AdminUser = 'hali';
 DECLARE @AppId UniqueIdentifier;
 SET @AppId = (SELECT ApplicationId FROM Applications WHERE ApplicationName = '/');
 
---ALTER TABLE Users ADD
---	PrivateData NVARCHAR(50),
---	ContactInfo NVARCHAR(50);
-
-IF OBJECT_ID('dbo.Ajanlat', 'U') IS NOT NULL
-	DROP TABLE Ajanlat;
+IF OBJECT_ID('dbo.Offer', 'U') IS NOT NULL
+	DROP TABLE Offer;
 IF OBJECT_ID('dbo.Service', 'U') IS NOT NULL
 	DROP TABLE Service;
 IF OBJECT_ID('dbo.Bicycle', 'U') IS NOT NULL
@@ -34,7 +30,7 @@ CREATE TABLE Service (
 	Address NVARCHAR(50) NOT NULL
 );
 
-CREATE TABLE Ajanlat (
+CREATE TABLE Offer (
 	ServiceId uniqueidentifier NOT NULL REFERENCES Service(UserId),
 	BicycleId uniqueidentifier NOT NULL REFERENCES Bicycle(Id) ON DELETE CASCADE,
 	

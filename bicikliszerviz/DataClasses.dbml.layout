@@ -3,7 +3,7 @@
   <DataContextMoniker Name="/DataClassesDataContext" />
   <nestedChildShapes>
     <classShape Id="12776e22-8093-49c9-89e3-23ac9881f564" absoluteBounds="3.5, 0.875, 2, 1.7708968098958331">
-      <DataClassMoniker Name="/DataClassesDataContext/Ajanlat" />
+      <DataClassMoniker Name="/DataClassesDataContext/Offer" />
       <nestedChildShapes>
         <elementListCompartment Id="c4f88d21-8b6f-491e-814d-3f534f945c48" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
@@ -20,14 +20,14 @@
         <elementListCompartment Id="efb2d8cd-3b8d-4931-ac46-06f17cd010d4" absoluteBounds="0.765, 4.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 1.81814697265625); (3.5 : 1.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.81814697265625); (3.5 : 1.81814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassesDataContext/Service/Service_Ajanlat" />
       <nodes>
         <classShapeMoniker Id="ba287809-37c8-4dbd-97a6-10ae77819d57" />
         <classShapeMoniker Id="12776e22-8093-49c9-89e3-23ac9881f564" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.76044840494792); (4.5 : 4.76044840494792); (4.5 : 2.64589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 4.76044840494792); (4.5 : 4.76044840494792); (4.5 : 2.64589680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassesDataContext/Bicycle/Bicycle_Ajanlat" />
       <nodes>
         <classShapeMoniker Id="06f9cf6d-148b-4635-825a-4ffc72c55123" />

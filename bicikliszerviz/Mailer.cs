@@ -39,7 +39,7 @@ A Bicikliszerviz portál csapata
 ";
 
 
-        public static void SendNewOfferToUser(Ajanlat a, HttpRequest request)
+        public static void SendNewOfferToUser(Offer a, HttpRequest request)
         {
             var user = a.Bicycle.Owner;
             string userName = user.UserName;
@@ -57,7 +57,7 @@ A Bicikliszerviz portál csapata
             smtp.Send(msg);
         }
 
-        public static void SendAcceptedOfferToService(Ajanlat a, HttpRequest request)
+        public static void SendAcceptedOfferToService(Offer a, HttpRequest request)
         {
             string serviceName = a.Service.Name;
             string userName = a.Bicycle.Owner.UserName;

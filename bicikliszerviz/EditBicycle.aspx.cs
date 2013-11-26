@@ -20,7 +20,7 @@ namespace bicikliszerviz.Scripts
         {
             var currentUser = System.Web.Security.Membership.GetUser();
             var bicycleID = Request.QueryString["bicycleID"];
-            List<Ajanlat> offers;
+            List<Offer> offers;
             if (bicycleID != null)
             {
                 // Existing bicycle
@@ -35,15 +35,15 @@ namespace bicikliszerviz.Scripts
                     typeTextBox.Text = b.Type;
                     faultTextBox.Text = b.Fault;
                 }
-                var ajanl = from ajanlat in this.db.Ajanlats
+                var ajanl = from ajanlat in this.db.Offers
                             join bicikli in this.db.Bicycles on ajanlat.BicycleId equals bicikli.Id
                             where bicikli.UserId == (Guid)currentUser.ProviderUserKey
                             select ajanlat;
-                offers = new List<Ajanlat>(ajanl);
+                offers = new List<Offer>(ajanl);
             }
             else
             {
-                offers = new List<Ajanlat>();
+                offers = new List<Offer>();
             }
             Repeater1.DataSource = offers;
             Repeater1.DataBind();
@@ -102,7 +102,7 @@ namespace bicikliszerviz.Scripts
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                Ajanlat a = (Ajanlat)e.Item.DataItem;
+                Offer a = (Offer)e.Item.DataItem;
 
                 ((Literal)e.Item.FindControl("serviceNameLiteral")).Text = a.Service.Name;
                 ((Literal)e.Item.FindControl("offerLiteral")).Text = a.Cost.ToString();
@@ -116,9 +116,9 @@ namespace bicikliszerviz.Scripts
             if (e.CommandName == "accept")
             {
                 int i = e.Item.ItemIndex;
-                var list = (List<Ajanlat>)this.Repeater1.DataSource;
+                var list = (List<Offer>)this.Repeater1.DataSource;
                 list.ForEach(aj => aj.Selected = false);
-                Ajanlat a = list[i];
+                Offer a = list[i];
                 a.Selected = true;
                 this.db.SubmitChanges();
                 Mailer.SendAcceptedOfferToService(a, this.Request);

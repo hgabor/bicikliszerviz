@@ -34,7 +34,7 @@ namespace bicikliszerviz
         {
             var bicycleID = Request.QueryString["bicycleID"];
             var currentUser = System.Web.Security.Membership.GetUser();
-            Ajanlat a = new Ajanlat();
+            Offer a = new Offer();
             if (!string.IsNullOrWhiteSpace(TextBox1.Text) && !string.IsNullOrWhiteSpace(TextBox2.Text))
             {
                 a.BicycleId = Guid.Parse(bicycleID);
@@ -42,7 +42,7 @@ namespace bicikliszerviz
                 a.Cost = int.Parse(TextBox1.Text);
                 a.Times = int.Parse(TextBox2.Text);
 
-                this.db.Ajanlats.InsertOnSubmit(a);
+                this.db.Offers.InsertOnSubmit(a);
                 this.db.SubmitChanges();
 
                 Mailer.SendNewOfferToUser(a, this.Request);

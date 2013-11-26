@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="bicikli" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=bicikli;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DefaultConnection" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Ajanlat" Member="Ajanlats">
-    <Type Name="Ajanlat">
+  <Table Name="dbo.Offer" Member="Offers">
+    <Type Name="Offer">
       <Column Name="ServiceId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="BicycleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Cost" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
@@ -16,7 +16,7 @@
       <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Address" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Service_Ajanlat" Member="Ajanlats" ThisKey="UserId" OtherKey="ServiceId" Type="Ajanlat" />
+      <Association Name="Service_Ajanlat" Member="Offers" Storage="_Ajanlats" ThisKey="UserId" OtherKey="ServiceId" Type="Offer" />
     </Type>
   </Table>
   <Table Name="dbo.Bicycle" Member="Bicycles">
@@ -26,7 +26,7 @@
       <Column Name="Type" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Size" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Fault" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Association Name="Bicycle_Ajanlat" Member="Ajanlats" ThisKey="Id" OtherKey="BicycleId" Type="Ajanlat" />
+      <Association Name="Bicycle_Ajanlat" Member="Offers" Storage="_Ajanlats" ThisKey="Id" OtherKey="BicycleId" Type="Offer" />
     </Type>
   </Table>
 </Database>
