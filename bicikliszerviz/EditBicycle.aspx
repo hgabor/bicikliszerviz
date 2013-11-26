@@ -1,8 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteWithFeaturedContent.master" AutoEventWireup="true" CodeBehind="EditBicycle.aspx.cs" Inherits="bicikliszerviz.Scripts.EditBicycle" %>
-<asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="EditBicycle.aspx.cs" Inherits="bicikliszerviz.Scripts.EditBicycle" %>
+<asp:Content ContentPlaceHolderID="MainContent" runat="server">
+    <h2>Bicikli</h2>
+    <p>Ezen az oldalon lehet új kerékpárt felvenni, vagy egy létezőt megtekinteni. Kérem adja meg a kerékpár adatait!</p>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <p>Ezen az oldalon lehet új kerékpárt felvenni. Kérem adja meg a kerékpár adatait!</p>
+<asp:Content ID="Content3" ContentPlaceHolderID="ArticleContent" runat="server">
     <asp:Label ID="typeLabel" runat="server" Text="Típus" AssociatedControlID="typeTextBox" />
     <asp:TextBox ID="typeTextBox" runat="server" />
 

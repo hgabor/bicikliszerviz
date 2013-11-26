@@ -1,23 +1,17 @@
 ﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="bicikliszerviz.About" %>
+<asp:Content ContentPlaceHolderID="MainContent" runat="server">
+    <h2>Rólunk</h2>
+    <p>A honlap készítői és elérhetőségeik:</p>
+</asp:Content>
 
-<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <hgroup class="title">
-        <h1>Rólunk</h1>
-        <h2>A honlapot készítette:</h2>
-    </hgroup>
+<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="ArticleContent">
+    <ul>
+        <li>        
+            Halász Gábor <a href="mailto:hgabor kukac level14 pont hu">E-mail küldése</a> 
+        </li>
 
-    <article>
-        <ul>
-            <li>        
-                Halász Gábor <a href="mailto:hgabor@level14.hu">E-mail küldése</a> 
-            </li>
-
-            <li>        
-                Andó Richárd <a href="mailto:ricsdo@gmail.com">E-mail küldése</a> 
-            </li>
-        </ul>
-    </article>
-    <h3>
-        A honlappal kapcsolatos kérdéseket a fenti e-mail elérhetőségeken várjuk. 
-    </h3>
+        <li>        
+            Andó Richárd <a href="mailto:ricsdo kukac gmail pont com">E-mail küldése</a> 
+        </li>
+    </ul>
 </asp:Content>

@@ -13,24 +13,6 @@ namespace bicikliszerviz {
     public partial class SiteMaster {
         
         /// <summary>
-        /// HeadContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
-        
-        /// <summary>
-        /// LoginView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView LoginView1;
-        
-        /// <summary>
         /// LoginView2 control.
         /// </summary>
         /// <remarks>
@@ -49,13 +31,13 @@ namespace bicikliszerviz {
         protected global::System.Web.UI.WebControls.LoginView LoginView3;
         
         /// <summary>
-        /// FeaturedContent control.
+        /// LoginView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder FeaturedContent;
+        protected global::System.Web.UI.WebControls.LoginView LoginView1;
         
         /// <summary>
         /// MainContent control.
@@ -65,5 +47,14 @@ namespace bicikliszerviz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        
+        /// <summary>
+        /// ArticleContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ArticleContent;
     }
 }

@@ -12,7 +12,6 @@
         <script src="<%: ResolveUrl("~/Scripts/modernizr-2.6.2.js") %>"></script>
     </asp:PlaceHolder>
     <meta name="viewport" content="width=device-width" />
-    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
 </head>
 <body>
     <form runat="server">
@@ -27,61 +26,63 @@
                 <a runat="server" href="~/"><img alt="LOGO" src="/images/logo.gif"></a>
             </div>
             <ul id="navigation">
-                    <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <li class="active">
-                                <a id="loginLink" runat="server" href="~/Account/Login">Bejelentkezés</a>
-                            </li>
-                            <li>
-                                <a id="registerLink" runat="server" href="~/Account/Register">Regisztráció</a>
-                            </li>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                                <li>
-                                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Kijelentkezés" LogoutPageUrl="~/" />
-                                </li>
-                                <li>
-                                    <a href="/ListBicycles.aspx">Saját biciklik</a>
-                                </li>
-                                <li>
-                                    <a href="/EditBicycle.aspx">Új bicikli</a>
-                                </li>
-
-                                <li>
-                                    <a id="A1" runat="server" class="username" href="~/Account/Manage" title="Manage your account">
-                                        Fiók kezelése: <asp:LoginName ID="LoginName1" runat="server" CssClass="username" />
-                                    </a>
-                                </li>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
-                    <asp:LoginView ID="LoginView2" runat="server">
-                        <RoleGroups>
-                            <asp:RoleGroup Roles="service">
-                                <ContentTemplate>
-                                    <li><a href="/ListService">Összes bicikli</a></li>
-                                </ContentTemplate>
-                            </asp:RoleGroup>
-                        </RoleGroups>
-                    </asp:LoginView>
-                    <asp:LoginView ID="LoginView3" runat="server">
-                        <RoleGroups>
-                            <asp:RoleGroup Roles="admin">
-                                <ContentTemplate>
-                                    <li><a href="/Admin">Szervizek admin</a></li>
-                                </ContentTemplate>
-                            </asp:RoleGroup>
-                        </RoleGroups>
-                    </asp:LoginView>
-                    </ul>
+                <asp:LoginView ID="LoginView2" runat="server">
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="service">
+                            <ContentTemplate>
+                                <li><a href="/ListService">Összes bicikli</a></li>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                    </RoleGroups>
+                </asp:LoginView>
+                <asp:LoginView ID="LoginView3" runat="server">
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="admin">
+                            <ContentTemplate>
+                                <li><a href="/Admin">Szervizek admin</a></li>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                    </RoleGroups>
+                </asp:LoginView>
+                <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+                    <AnonymousTemplate>
+                        <li class="active">
+                            <a id="loginLink" runat="server" href="~/Account/Login">Bejelentkezés</a>
+                        </li>
+                        <li>
+                            <a id="registerLink" runat="server" href="~/Account/Register">Regisztráció</a>
+                        </li>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        <li>
+                            <a href="/EditBicycle.aspx">Új bicikli</a>
+                        </li>
+                        <li>
+                            <a href="/ListBicycles.aspx">Saját biciklik</a>
+                        </li>
+                        <li>
+                            <a id="A1" runat="server" class="username" href="~/Account/Manage" title="Manage your account">
+                                Profil
+                                <%-- Fiók kezelése: <asp:LoginName ID="LoginName1" runat="server" CssClass="username" /> --%>
+                            </a>
+                        </li>
+                        <li>
+                            <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Kijelentkezés" LogoutPageUrl="~/" />
+                        </li>
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </ul>
         </div>
 
     <div id="body">
-        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
-        <section class="content-wrapper main-content clear-fix">
+        <div id="main">
             <asp:ContentPlaceHolder runat="server" ID="MainContent" />
-        </section>
+        </div>
+        <div id="contents">
+            <asp:ContentPlaceHolder runat="server" ID="ArticleContent" />
+        </div>
     </div>
-    <footer>
+    <div id="footer">
         <div id="footnote">
             <ul>
                 <li class="active">
@@ -93,7 +94,7 @@
             </ul>
             <span>© Copyright © <%: DateTime.Now.Year %> Minden jog fenntartva - Bicikliszerviz portál.</span>
         </div>
-    </footer>
+    </div>
     </form>
 </body>
 </html>

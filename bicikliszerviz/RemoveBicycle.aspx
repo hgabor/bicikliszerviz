@@ -1,11 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RemoveBicycle.aspx.cs" Inherits="bicikliszerviz.RemoveBicycle" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+<asp:Content ContentPlaceHolderID="MainContent" runat="server">
+    <h2>Bicikli törlése</h2>
+    <p>Biztosan szeretnéd törölni az alábbi biciklit?</p>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Biztosan szeretnéd törölni az alábbi biciklit?</h1>
-    <%: "Ide jön" %>
-
+<asp:Content ID="Content3" ContentPlaceHolderID="ArticleContent" runat="server">
+    <p>TODO: bicikli adatai</p>
     <asp:Button ID="removeButton" Text="Igen" OnClick="removeButton_Click" runat="server" />
 </asp:Content>

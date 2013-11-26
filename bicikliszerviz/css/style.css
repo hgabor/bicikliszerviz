@@ -26,14 +26,14 @@ img {
 #header {
 	height: 108px;
 	margin: 0 auto;
+	background: url(../images/bg-logo.jpg) no-repeat;
 }
 /** Logo **/
 #logo {
 	float: left;
-	background: url(../images/bg-logo.jpg) no-repeat;
 	height: 108px;
-	width: 350px;
-	margin-right: 23px;
+	width: 300px;
+    padding-left: 50px;
 }
 #logo a {
 	outline: 0;
@@ -52,7 +52,7 @@ img {
 }
 #navigation li {
 	float: left;
-	font-size: 14pt;
+	font-size: 12pt /*14pt*/;
 	height: 108px;
 	text-align: center;
 }
@@ -151,7 +151,7 @@ img {
 }
 #main p {
 	color: #4b4a4a;
-	font: 14px/24px 'VarelaRound-Regular';
+	font: 14px/24px /*'VarelaRound-Regular'*/;
 	width: 960px;
 	margin: 0 auto;
 	padding: 100px 0 24px;
@@ -185,7 +185,7 @@ img {
 }
 #contents p {
 	color: #4b4a4a;
-	font: 15px/20px 'VarelaRound-Regular';
+	font: 15px/20px /*'VarelaRound-Regular'*/;
 	margin: 0;
 	padding: 0 0 24px;
 }
