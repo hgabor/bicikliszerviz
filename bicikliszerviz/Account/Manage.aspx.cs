@@ -70,7 +70,8 @@ namespace bicikliszerviz.Account
             s = (from serv in this.db.Services
                  where
                  serv.UserId == (Guid)System.Web.Security.Membership.GetUser().ProviderUserKey
-                 select serv).First();
+                 select serv).FirstOrDefault();
+            if (s == null) return;
             String name = TextBox1.Text;
             String address = TextBox2.Text;
             if(name.Equals(""))
@@ -81,10 +82,10 @@ namespace bicikliszerviz.Account
             {
                 address = s.Address;
             }
-           s.Name = name;
-           s.Address = address;
-           this.db.SubmitChanges();
-           Response.Redirect("/default.aspx");
+            s.Name = name;
+            s.Address = address;
+            this.db.SubmitChanges();
+            Response.Redirect("/default.aspx");
         }
     }
 }

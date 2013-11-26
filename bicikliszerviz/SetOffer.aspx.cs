@@ -9,6 +9,8 @@ namespace bicikliszerviz
 {
     public partial class SetOffer : BasePage
     {
+        protected Bicycle bicycle;
+
         protected override string[] AllowedRoles
         {
             get
@@ -23,10 +25,10 @@ namespace bicikliszerviz
             if (bicycleID != null)
             {
                 // Existing bicycle
-                var b = (from bi in this.db.Bicycles
+                bicycle = (from bi in this.db.Bicycles
                             where
                             bi.Id == Guid.Parse(bicycleID)
-                            select bi).First();
+                            select bi).FirstOrDefault();
             }
         }
 

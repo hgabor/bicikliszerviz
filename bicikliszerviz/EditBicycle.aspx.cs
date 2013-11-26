@@ -28,7 +28,7 @@ namespace bicikliszerviz.Scripts
                          where
                          bi.UserId == (Guid)currentUser.ProviderUserKey &&
                          bi.Id == Guid.Parse(bicycleID)
-                         select bi).First();
+                         select bi).FirstOrDefault();
                 if (b != null && !IsPostBack)
                 {
                     sizeTextBox.Text = b.Size.ToString();
@@ -84,7 +84,8 @@ namespace bicikliszerviz.Scripts
                         where
                         bi.UserId == (Guid)currentUser.ProviderUserKey &&
                         bi.Id == Guid.Parse(bicycleID)
-                        select bi).First();
+                        select bi).FirstOrDefault();
+                if (b == null) return;
             }
             b.Size = int.Parse(sizeTextBox.Text);
             b.Type = typeTextBox.Text;

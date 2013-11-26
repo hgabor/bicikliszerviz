@@ -9,7 +9,7 @@ namespace bicikliszerviz
 {
     public partial class RemoveBicycle : BasePage
     {
-        Bicycle bicycle;
+        protected Bicycle bicycle;
         protected override string[] AllowedRoles
         {
             get
@@ -28,7 +28,7 @@ namespace bicikliszerviz
                             where
                             bi.UserId == (Guid)currentUser.ProviderUserKey &&
                             bi.Id == Guid.Parse(bicycleID)
-                            select bi).First();
+                            select bi).FirstOrDefault();
             }
         }
 
@@ -44,7 +44,8 @@ namespace bicikliszerviz
                                 where
                                     bi.UserId == (Guid)currentUser.ProviderUserKey &&
                                     bi.Id == Guid.Parse(bicycleID)
-                                select bi).First();
+                                select bi).FirstOrDefault();
+                if (b == null) return;
             }
             else
             {
