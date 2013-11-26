@@ -320,6 +320,7 @@
       <DependentUpon>ListService.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mailer.cs" />
+    <Compile Include="Offer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EditBicycle.aspx.cs">
       <DependentUpon>EditBicycle.aspx</DependentUpon>

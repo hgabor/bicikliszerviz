@@ -30,18 +30,22 @@
          <table id="t1" class="table">
             <tr>
                     <th>Serviz neve</th>
-                    <th>Árajánlat</th>
-                    <th>Javítás időtartama (nap)</th>
+                    <th>Ajánlat</th>
                     <th>Szerviz címe</th>
                     <th>Ajánlat elfogadása</th>
             </tr>
              <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound" OnItemCommand="Repeater1_ItemCommand">
             <ItemTemplate>
-                <td><asp:Literal ID="serviceNameLiteral" runat="server"></asp:Literal></td>
-                <td><asp:Literal ID="offerLiteral" runat="server"></asp:Literal></td>
-                <td><asp:Literal ID="timeLiteral" runat="server"></asp:Literal></td>
-                <td><asp:Literal ID="addressLiteral" runat="server"></asp:Literal></td>
-                <td><asp:Button ID="acceptButton" CommandName="accept" Text="Elfogad" runat="server" CssClass="btn btn-default" /></td>
+                <tr>
+                    <td><asp:Literal ID="serviceNameLiteral" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="offerLiteral" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="addressLiteral" runat="server"></asp:Literal></td>
+                    <td>
+                        <% if (!HasAcceptedOffer) { %>
+                            <asp:Button ID="acceptButton" CommandName="accept" Text="Elfogad" runat="server" CssClass="btn btn-default" />
+                        <% } %>
+                    </td>
+                </tr>
             </ItemTemplate>
         </asp:Repeater>
         </table>

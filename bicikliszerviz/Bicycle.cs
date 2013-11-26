@@ -19,5 +19,14 @@ namespace bicikliszerviz
                 this.UserId = (Guid)value.ProviderUserKey;
             }
         }
+
+        public Offer OwnOffer
+        {
+            get
+            {
+                var user = System.Web.Security.Membership.GetUser();
+                return this.Offers.Where(o => o.ServiceId == (Guid)user.ProviderUserKey).FirstOrDefault();
+            }
+        }
     }
 }

@@ -9,6 +9,8 @@ namespace bicikliszerviz.Scripts
 {
     public partial class EditBicycle : BasePage
     {
+        protected bool HasAcceptedOffer;
+
         protected override string[] AllowedRoles
         {
             get
@@ -55,7 +57,17 @@ namespace bicikliszerviz.Scripts
             {
                 Response.Redirect("Account/Login.aspx");
             }
-
+            var bicycleID = Request.QueryString["bicycleID"];
+            if (bicycleID != null)
+            {
+                var currentUser = System.Web.Security.Membership.GetUser();
+                Guid g;
+                if (!Guid.TryParse(bicycleID, out g)) return;
+                var bicycle = (from b in this.db.Bicycles
+                               where b.Id == g && b.UserId == (Guid)currentUser.ProviderUserKey
+                               select b).FirstOrDefault();
+                HasAcceptedOffer = bicycle.Offers.Any(o => o.Selected);
+            }
         }
 
         protected override void OnInit(EventArgs e)
@@ -106,8 +118,7 @@ namespace bicikliszerviz.Scripts
                 Offer a = (Offer)e.Item.DataItem;
 
                 ((Literal)e.Item.FindControl("serviceNameLiteral")).Text = a.Service.Name;
-                ((Literal)e.Item.FindControl("offerLiteral")).Text = a.Cost.ToString();
-                ((Literal)e.Item.FindControl("timeLiteral")).Text = a.Times.ToString();
+                ((Literal)e.Item.FindControl("offerLiteral")).Text = a.ToString();
                 ((Literal)e.Item.FindControl("addressLiteral")).Text = a.Service.Address;
             }
         }
@@ -116,6 +127,7 @@ namespace bicikliszerviz.Scripts
         {
             if (e.CommandName == "accept")
             {
+                if (HasAcceptedOffer) return;
                 int i = e.Item.ItemIndex;
                 var list = (List<Offer>)this.Repeater1.DataSource;
                 list.ForEach(aj => aj.Selected = false);
