@@ -4,22 +4,30 @@
     <p>Ezen az oldalon lehet új kerékpárt felvenni, vagy egy létezőt megtekinteni. Kérem adja meg a kerékpár adatait!</p>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ArticleContent" runat="server">
-    <asp:Label ID="typeLabel" runat="server" Text="Típus" AssociatedControlID="typeTextBox" />
-    <asp:TextBox ID="typeTextBox" runat="server" />
+    <div class="form-horizontal">
+        <div class="form-group">
+            <asp:Label ID="typeLabel" runat="server" Text="Típus:" AssociatedControlID="typeTextBox" CssClass="col-md-3 control-label" />
+            <span class="col-md-7"><asp:TextBox ID="typeTextBox" runat="server" CssClass="form-control" /></span>
+        </div>
+        <div class="form-group">
+            <asp:Label ID="sizeLabel" runat="server" Text="Méret:" AssociatedControlID="sizeTextBox" CssClass="col-md-3 control-label" />
+            <span class="col-md-7"><asp:TextBox ID="sizeTextBox" runat="server" CssClass="form-control" /></span>
+        </div>
+        <div class="form-group">
+            <asp:Label ID="faultLabel" runat="server" Text="Hiba szöveges leírása" AssociatedControlID="faultTextBox" CssClass="col-md-3 control-label" />
+            <span class="col-md-7"><asp:TextBox ID="faultTextBox" runat="server" TextMode="MultiLine" CssClass="form-control" /></span>
+        </div>
+        <div class="form-group">
+            <span class="col-md-1 col-md-offset-3"><asp:Button ID="submitButton" runat="server" Text="Mentés" OnClick="submitButton_Click" CssClass="btn btn-default" /></span>
+        </div>
+    </div>
 
-    <asp:Label ID="sizeLabel" runat="server" Text="Méret" AssociatedControlID="sizeTextBox" />
-    <asp:TextBox ID="sizeTextBox" runat="server" />
-
-    <asp:Label ID="faultLabel" runat="server" Text="Hiba szöveges leírása" AssociatedControlID="faultTextBox" />
-    <asp:TextBox ID="faultTextBox" runat="server" TextMode="MultiLine" />
-
-    <asp:Button ID="submitButton" runat="server" Text="Mentés" OnClick="submitButton_Click" />
     <%  if(Request.QueryString["bicycleID"]!=null){ %>
         <%if(Repeater1.Items.Count==0){ %>
         <p>Eddig még nem érkezett ajánlat az adott kerékpárra.</p>
         <% }%>
         <% else{%>
-         <table border="0" id="t1">
+         <table id="t1" class="table">
             <tr>
                     <th>Serviz neve</th>
                     <th>Árajánlat</th>
@@ -33,7 +41,7 @@
                 <td><asp:Literal ID="offerLiteral" runat="server"></asp:Literal></td>
                 <td><asp:Literal ID="timeLiteral" runat="server"></asp:Literal></td>
                 <td><asp:Literal ID="addressLiteral" runat="server"></asp:Literal></td>
-                <td><asp:Button ID="acceptButton" CommandName="accept" Text="Elfogad" runat="server" /></td>
+                <td><asp:Button ID="acceptButton" CommandName="accept" Text="Elfogad" runat="server" CssClass="btn btn-default" /></td>
             </ItemTemplate>
         </asp:Repeater>
         </table>

@@ -5,15 +5,20 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ArticleContent" runat="server">
-    <ul>
+    <table class="table">
+        <tr>
+            <th>Típus</th>
+            <th>Ajánlatok száma</th>
+            <th>Törlés</th>
+        </tr>
         <% foreach (var b in list) { %>
-        <li>
-            <a href="EditBicycle?bicycleID=<%= HttpUtility.UrlEncode(b.Id.ToString()) %>">
+        <tr>
+            <td><a href="EditBicycle?bicycleID=<%= HttpUtility.UrlEncode(b.Id.ToString()) %>">
                 <%: b.Type %>
-            </a>
-            <a href="RemoveBicycle?bicycleID=<%= HttpUtility.UrlEncode(b.Id.ToString()) %>">Törlés</a>
-            Ajánlatok száma: <%: b.Ajanlats.Count() %>
-        </li>
+            </a></td>
+            <td><%: b.Ajanlats.Count() %> ajánlat</td>
+            <td><a href="RemoveBicycle?bicycleID=<%= HttpUtility.UrlEncode(b.Id.ToString()) %>">Törlés</a></td>
+        </tr>
         <% } %>
-    </ul>
+    </table>
 </asp:Content>

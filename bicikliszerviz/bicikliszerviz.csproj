@@ -113,6 +113,10 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\Verify.aspx" />
     <Content Include="Admin.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -168,9 +172,13 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="css\darkstrap.min.css" />
     <Content Include="css\mystyle.css" />
     <Content Include="css\style.css" />
     <Content Include="EmailTemplates\NewAccount.html" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\PT_Serif-Caption-Web-Italic.svg" />
+    <Content Include="fonts\VarelaRound-Regular.svg" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -200,7 +208,20 @@
     </None>
     <Content Include="mail.config" />
     <Content Include="RemoveBicycle.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\PT_Serif-Caption-Web-Italic.eot" />
+    <Content Include="fonts\PT_Serif-Caption-Web-Italic.otf" />
+    <Content Include="fonts\PT_Serif-Caption-Web-Italic.ttf" />
+    <Content Include="fonts\PT_Serif-Caption-Web-Italic.woff" />
+    <Content Include="fonts\VarelaRound-Regular.eot" />
+    <Content Include="fonts\VarelaRound-Regular.otf" />
+    <Content Include="fonts\VarelaRound-Regular.ttf" />
+    <Content Include="fonts\VarelaRound-Regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />

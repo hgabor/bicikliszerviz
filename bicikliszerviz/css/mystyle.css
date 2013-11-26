@@ -1,18 +1,29 @@
 ﻿
-table
+label.row
 {
-    border-collapse: collapse;
-}
-th
-{
-    border-bottom: 1px solid white;
-}
-#t1 th, #t1 td
-{
-	padding: 5px;
+    display: block;
 }
 
-#t1
+.row
 {
-	margin-top: 20px;
+    margin-top: 5px;
+}
+
+.form-group .form-control {
+    height: 34px;
+}
+.form-group textarea.form-control {
+    height: 100px;
+    color: white;
+
+    background-color: #CCCCCC;
+    background: rgba(0, 0, 0, 0.298);
+    border: 0px none currentColor;
+    box-shadow: rgba(255, 255, 255, 0.102) 0px 1px 0px, rgba(0, 0, 0, 0.804) 0px 1px 7px 0px inset;
+}
+
+.btn {
+    background-color: #CCCCCC;
+    background-color: rgba(0, 0, 0, 0.298);
+    color: white;
 }

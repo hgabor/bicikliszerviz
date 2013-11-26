@@ -5,5 +5,5 @@
 </asp:Content>
 <asp:Content ContentPlaceHolderID="ArticleContent" runat="server">
     <asp:CheckBoxList ID="UsersCheckBoxList" runat="server"></asp:CheckBoxList>
-    <asp:Button ID="submitButton" Text="Mentés" runat="server" OnClick="submitButton_Click" />
+    <asp:Button ID="submitButton" Text="Mentés" runat="server" OnClick="submitButton_Click" CssClass="btn btn-default" />
 </asp:Content>

@@ -157,13 +157,6 @@ img {
 	padding: 100px 0 24px;
 	text-align: justify;
 }
-#main p a {
-	color: #4b4a4a;
-	outline: 0;
-}
-#main p a:hover {
-	color: #8a8989;
-}
 /*------------------------------ Inner pages styles ------------------------------*/
 #contents {
 	background: url(../images/border-dashed.gif) repeat-x left bottom;
@@ -191,13 +184,6 @@ img {
 }
 #contents p em {
 	display: block;
-}
-#contents p a {
-	color: #4b4a4a;
-	outline: 0;
-}
-#contents p a:hover {
-	color: #8a8989;
 }
 /** Blog Page **/
 #blogs ul {
@@ -292,13 +278,6 @@ img {
 #articles p {
 	color: #4b4a4a;
 	font: 14px/24px 'VarelaRound-Regular';
-}
-#articles p a {
-	color: #4b4a4a;
-	outline: 0;
-}
-#articles p a:hover {
-	color: #8a8989;
 }
 #articles ul li p {
 	font-size: 12px;

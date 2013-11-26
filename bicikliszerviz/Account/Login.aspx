@@ -7,26 +7,30 @@
 <asp:Content runat="server" ID="Content1" ContentPlaceHolderID="ArticleContent">
     <asp:Login runat="server" ViewStateMode="Disabled" RenderOuterTable="false">
         <LayoutTemplate>
-            <ol>
-                <li>
-                    <asp:Label runat="server" AssociatedControlID="UserName">Felhasználónév</asp:Label>
-                    <asp:TextBox runat="server" ID="UserName" />
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" CssClass="field-validation-error" ErrorMessage="The user name field is required." />
-                </li>
-                <li>
-                    <asp:Label runat="server" AssociatedControlID="Password">Jelszó</asp:Label>
-                    <asp:TextBox runat="server" ID="Password" TextMode="Password" />
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="The password field is required." />
-                </li>
-                <li>
-                    <asp:CheckBox runat="server" ID="RememberMe" />
-                    <asp:Label runat="server" AssociatedControlID="RememberMe" CssClass="checkbox">Emlékezz rám</asp:Label>
-                </li>
-            </ol>
             <p class="validation-summary-errors">
                 <asp:Literal runat="server" ID="FailureText" />
             </p>
-            <asp:Button runat="server" CommandName="Login" Text="Bejelentkezés" />
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <asp:Label runat="server" AssociatedControlID="UserName" CssClass="control-label col-md-3">Felhasználónév:</asp:Label>
+                    <span class="col-md-4"><asp:TextBox runat="server" ID="UserName" CssClass="form-control" /></span>
+                    <span class="col-md-5"><asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" CssClass="field-validation-error" ErrorMessage="A mező kitöltése kötelező." /></span>
+                </div>
+                <div class="form-group">
+                    <asp:Label runat="server" AssociatedControlID="Password" CssClass="control-label col-md-3">Jelszó:</asp:Label>
+                    <span class="col-md-4"><asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" /></span>
+                    <span class="col-md-5"><asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="A mező kitöltése kötelező." /></span>
+                </div>
+                <div class="form-group">
+                    <asp:Label runat="server" AssociatedControlID="RememberMe" CssClass="checkbox control-label col-md-3">Emlékezz rám:</asp:Label>
+                    <span class="col-md-4"><asp:CheckBox runat="server" ID="RememberMe" /></span>
+                </div>
+                <div class="form-group">
+                    <span class="col-md-1 col-md-offset-3">
+                        <asp:Button runat="server" CommandName="Login" Text="Bejelentkezés" CssClass="btn btn-default" />
+                    </span>
+                </div>
+            </div>
         </LayoutTemplate>
     </asp:Login>
     <p>

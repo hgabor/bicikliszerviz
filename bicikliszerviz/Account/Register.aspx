@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="bicikliszerviz.Account.Register" %>
 
-<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <hgroup class="title">
-        <h1>Regisztráció</h1>
-        <h2>Regisztrációhoz add meg a szükséges adatokat</h2>
-    </hgroup>
+<asp:Content ContentPlaceHolderID="MainContent" runat="server">
+    <h2>Regisztráció</h2>
+    <p>Regisztrációhoz add meg a szükséges adatokat!</p>
+</asp:Content>
 
+<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="ArticleContent">
     <asp:CreateUserWizard runat="server" ID="RegisterUser" ViewStateMode="Disabled" OnCreatedUser="RegisterUser_CreatedUser" DisableCreatedUser="true" OnSendingMail="RegisterUser_SendingMail">
         <LayoutTemplate>
             <asp:PlaceHolder runat="server" ID="wizardStepPlaceholder" />
@@ -22,38 +22,39 @@
                         <asp:Literal runat="server" ID="ErrorMessage" />
                     </p>
 
-                    <fieldset>
-                        <legend>Regisztrációs felület</legend>
-                        <ol>
-                            <li>
-                                <asp:Label runat="server" AssociatedControlID="UserName">Felhasználónév</asp:Label>
-                                <asp:TextBox runat="server" ID="UserName" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName"
-                                    CssClass="field-validation-error" ErrorMessage="A felhasználónév mező kitöltése kötelező." />
-                            </li>
-                            <li>
-                                <asp:Label runat="server" AssociatedControlID="Email">E-mail cím</asp:Label>
-                                <asp:TextBox runat="server" ID="Email" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
-                                    CssClass="field-validation-error" ErrorMessage="Az e-mail mező kitöltése kötelező." />
-                            </li>
-                            <li>
-                                <asp:Label runat="server" AssociatedControlID="Password">Jelszó</asp:Label>
-                                <asp:TextBox runat="server" ID="Password" TextMode="Password" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
-                                    CssClass="field-validation-error" ErrorMessage="A jelszó mező kitöltése kötelező." />
-                            </li>
-                            <li>
-                                <asp:Label runat="server" AssociatedControlID="ConfirmPassword">Jelszó megerősítése</asp:Label>
-                                <asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password" />
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <asp:Label runat="server" AssociatedControlID="UserName" CssClass="control-label col-md-3">Felhasználónév:</asp:Label>
+                            <span class="col-md-4"><asp:TextBox runat="server" ID="UserName" CssClass="form-control" /></span>
+                            <span class="col-md-5"><asp:RequiredFieldValidator runat="server" ControlToValidate="UserName"
+                                CssClass="field-validation-error" ErrorMessage="A mező kitöltése kötelező." /></span>
+                        </div>
+                        <div class="form-group">
+                            <asp:Label runat="server" AssociatedControlID="Email" CssClass="control-label col-md-3">E-mail cím:</asp:Label>
+                            <span class="col-md-4"><asp:TextBox runat="server" ID="Email" CssClass="form-control" /></span>
+                            <span class="col-md-5"><asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
+                                CssClass="field-validation-error" ErrorMessage="A mező kitöltése kötelező." /></span>
+                        </div>
+                        <div class="form-group">
+                            <asp:Label runat="server" AssociatedControlID="Password" CssClass="control-label col-md-3">Jelszó:</asp:Label>
+                            <span class="col-md-4"><asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" /></span>
+                            <span class="col-md-5"><asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
+                                CssClass="field-validation-error" ErrorMessage="A mező kitöltése kötelező." /></span>
+                        </div>
+                        <div class="form-group">
+                            <asp:Label runat="server" AssociatedControlID="ConfirmPassword" CssClass="control-label col-md-3">Jelszó megerősítése:</asp:Label>
+                            <span class="col-md-4"><asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password" CssClass="form-control" /></span>
+                            <span class="col-md-5">
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="ConfirmPassword"
-                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="A megerősítő jelszó mező kitöltése kötelező." />
+                                    CssClass="field-validation-error" Display="Dynamic" ErrorMessage="A  mező kitöltése kötelező." />
                                 <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
-                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="A jelszó és a megerősítő jelszó nem egyezik meg." />
-                            </li>
-                        </ol>
-                        <asp:Button runat="server" CommandName="MoveNext" Text="Regisztráció mentése" />
-                    </fieldset>
+                                    CssClass="field-validation-error" Display="Dynamic" ErrorMessage="A két jelszó nem egyezik meg." />
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-md-2 col-md-offset-3"><asp:Button runat="server" CommandName="MoveNext" Text="Regisztráció" CssClass="btn btn-default" /></span>
+                        </div>
+                    </div>
                 </ContentTemplate>
                 <CustomNavigationTemplate />
             </asp:CreateUserWizardStep>

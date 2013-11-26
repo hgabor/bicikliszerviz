@@ -4,7 +4,7 @@
     <p>Válasszon egy biciklit, amelyre ajánlatot szeretne tenni!</p>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ArticleContent" runat="server">
-        <table border="0">
+        <table class="table">
                 <tr>
                     <th>Típus</th>
                     <th>Méret</th>
