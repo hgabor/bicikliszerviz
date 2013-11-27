@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Account" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="bicikliszerviz.Account.Manage" %>
+﻿<%@ Page Title="Profil" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="bicikliszerviz.Account.Manage" %>
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <h2>Profil</h2>
     <p>Bejelentkezve, mint:  <strong><%: User.Identity.Name %></strong>.</p>

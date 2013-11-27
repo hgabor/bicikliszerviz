@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="EditBicycle.aspx.cs" Inherits="bicikliszerviz.Scripts.EditBicycle" %>
+﻿<%@ Page Title="Bicikli" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="EditBicycle.aspx.cs" Inherits="bicikliszerviz.Scripts.EditBicycle" %>
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <h2>Bicikli</h2>
     <p>Ezen az oldalon lehet új kerékpárt felvenni, vagy egy létezőt megtekinteni. Kérem adja meg a kerékpár adatait!</p>

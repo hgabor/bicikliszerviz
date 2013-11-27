@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SetOffer.aspx.cs" Inherits="bicikliszerviz.SetOffer" %>
+﻿<%@ Page Title="Ajánlattétel" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SetOffer.aspx.cs" Inherits="bicikliszerviz.SetOffer" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Ajánlattétel</h2>

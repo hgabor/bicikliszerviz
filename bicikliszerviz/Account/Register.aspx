@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="bicikliszerviz.Account.Register" %>
+﻿<%@ Page Title="Regisztráció" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="bicikliszerviz.Account.Register" %>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <h2>Regisztráció</h2>

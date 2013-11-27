@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Verify.aspx.cs" Inherits="bicikliszerviz.Account.Verify" %>
+﻿<%@ Page Title="Megerősítés" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Verify.aspx.cs" Inherits="bicikliszerviz.Account.Verify" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Panel runat="server" ID="succesPanel">
         <h2>A regisztráció sikeres volt!</h2>

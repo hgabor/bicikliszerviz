@@ -1,4 +1,4 @@
-﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="bicikliszerviz.About" %>
+﻿<%@ Page Title="Rólunk" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="bicikliszerviz.About" %>
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <h2>Rólunk</h2>
     <p>A honlap készítői és elérhetőségeik:</p>

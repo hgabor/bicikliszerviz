@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RemoveBicycle.aspx.cs" Inherits="bicikliszerviz.RemoveBicycle" %>
+﻿<%@ Page Title="Bicikli törlése" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RemoveBicycle.aspx.cs" Inherits="bicikliszerviz.RemoveBicycle" %>
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <h2>Bicikli törlése</h2>
     <p>Biztosan szeretnéd törölni az alábbi biciklit?</p>
