@@ -8,14 +8,17 @@
         <div class="form-group">
             <asp:Label ID="typeLabel" runat="server" Text="Típus:" AssociatedControlID="typeTextBox" CssClass="col-md-3 control-label" />
             <span class="col-md-7"><asp:TextBox ID="typeTextBox" runat="server" CssClass="form-control" /></span>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="typeTextBox" CssClass="field-validation-error" ErrorMessage="A mező kitöltése kötelező." />
         </div>
         <div class="form-group">
             <asp:Label ID="sizeLabel" runat="server" Text="Méret:" AssociatedControlID="sizeTextBox" CssClass="col-md-3 control-label" />
             <span class="col-md-7"><asp:TextBox ID="sizeTextBox" runat="server" CssClass="form-control" /></span>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="sizeTextBox" CssClass="field-validation-error" ErrorMessage="A mező kitöltése kötelező." />
         </div>
         <div class="form-group">
             <asp:Label ID="faultLabel" runat="server" Text="Hiba szöveges leírása" AssociatedControlID="faultTextBox" CssClass="col-md-3 control-label" />
             <span class="col-md-7"><asp:TextBox ID="faultTextBox" runat="server" TextMode="MultiLine" CssClass="form-control" /></span>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="faultTextBox" CssClass="field-validation-error" ErrorMessage="A mező kitöltése kötelező." />
         </div>
         <div class="form-group">
             <span class="col-md-1 col-md-offset-3"><asp:Button ID="submitButton" runat="server" Text="Mentés" OnClick="submitButton_Click" CssClass="btn btn-default" /></span>
