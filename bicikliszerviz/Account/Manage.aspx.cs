@@ -38,9 +38,9 @@ namespace bicikliszerviz.Account
                     Form.Action = ResolveUrl("~/Account/Manage");
 
                     SuccessMessage =
-                        message == "ChangePwdSuccess" ? "Your password has been changed."
-                        : message == "SetPwdSuccess" ? "Your password has been set."
-                        : message == "RemoveLoginSuccess" ? "The external login was removed."
+                        message == "ChangePwdSuccess" ? "A jelszavad megváltozott."
+                        : message == "SetPwdSuccess" ? "A jelszavad rögzítésre került."
+                        : message == "RemoveLoginSuccess" ? "A külső bejelentkezés törölésre került."
                         : String.Empty;
                     successMessage.Visible = !String.IsNullOrEmpty(SuccessMessage);
                 }
