@@ -84,8 +84,12 @@ namespace bicikliszerviz.Account
             }
             s.Name = name;
             s.Address = address;
-            this.db.SubmitChanges();
-            Response.Redirect("/default.aspx");
+            try
+            {
+                this.db.SubmitChanges();
+                Response.Redirect("/default.aspx");
+            }
+            catch { /*"Sikertlen bevitel, próbáld újra!"; */}
         }
     }
 }
