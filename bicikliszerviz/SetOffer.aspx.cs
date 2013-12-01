@@ -50,5 +50,11 @@ namespace bicikliszerviz
                 Mailer.SendNewOfferToUser(a, this.Request);
             }
         }
+
+        protected void Validator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            int _;
+            args.IsValid = int.TryParse(args.Value, out _);
+        }
     }
 }

@@ -11,11 +11,13 @@
                 <asp:Label ID="Label1" runat="server" Text="Név:" AssociatedControlID="TextBox1" CssClass="col-md-3 control-label"></asp:Label>
                 <span class="col-md-7"><asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox></span>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" CssClass="field-validation-error" ErrorMessage="A mező kitöltése kötelező." />
+                <asp:CustomValidator ControlToValidate="TextBox1" ID="CustomValidator1" runat="server" ErrorMessage="Max 20 karakter" OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
             </div>
             <div class="form-group">
                 <asp:Label ID="Label2" runat="server" Text="Cím:" AssociatedControlID="TextBox2" CssClass="col-md-3 control-label"></asp:Label>
                 <span class="col-md-7"><asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox></span>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" CssClass="field-validation-error" ErrorMessage="A mező kitöltése kötelező." />
+                <asp:CustomValidator ControlToValidate="TextBox2" runat="server" ErrorMessage="Max 50 karakter" OnServerValidate="Unnamed_ServerValidate" />
             </div>
             <div class="form-group">
                 <span class="col-md-1 col-md-offset-3"><asp:Button ID="Button1" runat="server" Text="Mentés" OnClick="Button1_Click" CssClass="btn btn-default" /></span>

@@ -89,7 +89,18 @@ namespace bicikliszerviz.Account
                 this.db.SubmitChanges();
                 Response.Redirect("/default.aspx");
             }
-            catch { /*"Sikertlen bevitel, próbáld újra!"; */}
+            catch { }
+        }
+
+        // Szervice name
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = args.Value.Length <= 20;
+        }
+
+        protected void Unnamed_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = args.Value.Length <= 50;
         }
     }
 }
